@@ -1,9 +1,7 @@
+/* Black Knights Robotics (C) 2025 */
 package frc.robot.subsystems;
+
 import com.ctre.phoenix.led.*;
-import com.ctre.phoenix.led.ColorFlowAnimation.Direction;
-import com.ctre.phoenix.led.LarsonAnimation.BounceMode;
-import com.ctre.phoenix.led.TwinkleAnimation.TwinklePercent;
-import com.ctre.phoenix.led.TwinkleOffAnimation.TwinkleOffPercent;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class LEDSubsystem extends SubsystemBase {
@@ -17,22 +15,4 @@ public class LEDSubsystem extends SubsystemBase {
     private int b = 0;
 
     private Animation animation = null;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

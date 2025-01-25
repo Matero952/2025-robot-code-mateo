@@ -43,4 +43,7 @@ public class ArmConstants {
 
     public static final double INTAKE_ANGLE = 0;
     public static final double PLACE_ANGLE = 0;
+
+    public static final double INTAKE_SPEED = 0.0;
+    public static final double TARGET_INTAKE_MS = 200.0;
 }

@@ -18,6 +18,7 @@ public class ArmSubsystem extends SubsystemBase {
             new SparkFlex(ArmConstants.PIVOT_MOTOR_ID, SparkLowLevel.MotorType.kBrushless);
     private final WPI_TalonSRX leftMotor = new WPI_TalonSRX(ArmConstants.LEFT_MOTOR_ID);
     private final WPI_TalonSRX rightMotor = new WPI_TalonSRX(ArmConstants.RIGHT_MOTOR_ID);
+
     private final DigitalInput gamePieceLineBreak =
             new DigitalInput(ArmConstants.HAND_LINEBREAK_ID);
 
