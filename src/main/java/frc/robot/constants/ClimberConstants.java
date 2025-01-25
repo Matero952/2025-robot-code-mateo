@@ -19,6 +19,5 @@ public class ClimberConstants {
     public static final double JOINT_A = 0;
 
     public static final double CURRENT_MAX = 0;
-    //Current as in electricity.
     public static final double CLIMBER_TOLERANCE = 0;
 }
