@@ -22,6 +22,7 @@ import edu.wpi.first.util.WPIUtilJNI;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.constants.DrivetrainConstants;
 import frc.robot.controllers.MAXSwerveModule;
+import frc.robot.utils.ConfigManager;
 import frc.robot.utils.NetworkTablesUtils;
 import frc.robot.utils.SwerveUtils;
 
@@ -36,8 +37,8 @@ public class SwerveSubsystem extends SubsystemBase {
     private final MAXSwerveModule frontRight =
             new MAXSwerveModule(
                     DrivetrainConstants.FRONT_RIGHT_DRIVING_CAN_ID,
-                    DrivetrainConstants.FRONT_LEFT_TURNING_CAN_ID,
-                    DrivetrainConstants.FRONT_LEFT_CHASSIS_ANGULAR_OFFSET);
+                    DrivetrainConstants.FRONT_RIGHT_TURNING_CAN_ID,
+                    DrivetrainConstants.FRONT_RIGHT_CHASSIS_ANGULAR_OFFSET);
 
     private final MAXSwerveModule rearLeft =
             new MAXSwerveModule(
@@ -48,7 +49,7 @@ public class SwerveSubsystem extends SubsystemBase {
     private final MAXSwerveModule rearRight =
             new MAXSwerveModule(
                     DrivetrainConstants.REAR_RIGHT_DRIVING_CAN_ID,
-                    DrivetrainConstants.REAR_LEFT_TURNING_CAN_ID,
+                    DrivetrainConstants.REAR_RIGHT_TURNING_CAN_ID,
                     DrivetrainConstants.REAR_RIGHT_CHASSIS_ANGULAR_OFFSET);
 
     // The gyro sensor
@@ -61,9 +62,17 @@ public class SwerveSubsystem extends SubsystemBase {
 
     // Slew Rate Limiters
     private final SlewRateLimiter magnitudeLimiter =
-            new SlewRateLimiter(DrivetrainConstants.MAGNITUDE_SLEW_RATE);
+            new SlewRateLimiter(
+                    ConfigManager.getInstance()
+                            .get(
+                                    "drive_magnitude_slew_rate",
+                                    DrivetrainConstants.MAGNITUDE_SLEW_RATE));
     private final SlewRateLimiter rotationLimiter =
-            new SlewRateLimiter(DrivetrainConstants.ROTATIONAL_SLEW_RATE);
+            new SlewRateLimiter(
+                    ConfigManager.getInstance()
+                            .get(
+                                    "drive_rotational_slew_rate",
+                                    DrivetrainConstants.ROTATIONAL_SLEW_RATE));
 
     // Slew Rate Time
     private double previousTime = WPIUtilJNI.now() * 1e-6;
@@ -384,7 +393,7 @@ public class SwerveSubsystem extends SubsystemBase {
     /**
      * Returns the heading of the robot.
      *
-     * @return the robot's heading in degrees, from -180 to 180
+     * @return the robot's heading in degrees, from -pi to pi
      */
     public double getHeadingRad() {
         return Rotation2d.fromDegrees(gyro.getAngle()).getRadians();
