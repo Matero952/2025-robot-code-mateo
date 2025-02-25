@@ -177,7 +177,7 @@ public class ReefAlignCommand extends Command {
                     currTarget.getX(), currTarget.getY(), currTarget.getRotation().getRadians()
                 });
 
-        swerveSubsystem.drive(finalX, finalY, rotationPidCalc, true, true, true);
+        //        swerveSubsystem.drive(finalX, finalY, rotationPidCalc, true, true, true);
     }
 
     @Override
@@ -192,6 +192,6 @@ public class ReefAlignCommand extends Command {
 
     @Override
     public void end(boolean interrupted) {
-        swerveSubsystem.drive(0, 0, 0, false, true, false);
+        //        swerveSubsystem.drive(0, 0, 0, false, true, false);
     }
 }

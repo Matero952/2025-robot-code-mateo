@@ -248,25 +248,25 @@ public class SwerveSubsystem extends SubsystemBase {
         actualTelemetry.set(
                 new double[] {
                     frontLeft.getPosition().angle.getRadians(),
-                            frontLeft.getState().speedMetersPerSecond,
+                    frontLeft.getState().speedMetersPerSecond,
                     frontRight.getPosition().angle.getRadians(),
-                            frontRight.getState().speedMetersPerSecond,
+                    frontRight.getState().speedMetersPerSecond,
                     rearLeft.getPosition().angle.getRadians(),
-                            rearLeft.getState().speedMetersPerSecond,
+                    rearLeft.getState().speedMetersPerSecond,
                     rearRight.getPosition().angle.getRadians(),
-                            rearRight.getState().speedMetersPerSecond
+                    rearRight.getState().speedMetersPerSecond
                 });
 
         setpointsTelemetry.set(
                 new double[] {
                     frontLeft.getState().angle.getRadians(),
-                            frontLeft.getState().speedMetersPerSecond,
+                    frontLeft.getState().speedMetersPerSecond,
                     frontRight.getState().angle.getRadians(),
-                            frontRight.getState().speedMetersPerSecond,
+                    frontRight.getState().speedMetersPerSecond,
                     rearLeft.getState().angle.getRadians(),
-                            rearLeft.getState().speedMetersPerSecond,
+                    rearLeft.getState().speedMetersPerSecond,
                     rearRight.getState().angle.getRadians(),
-                            rearRight.getState().speedMetersPerSecond
+                    rearRight.getState().speedMetersPerSecond
                 });
 
         gyroHeading.set(getHeadingRad());
